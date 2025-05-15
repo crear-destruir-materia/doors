@@ -1,0 +1,22 @@
+.directionArrow {
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: var(--color-gray-800);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.directionArrow:hover:not(.disabled) {
+  background-color: var(--color-purple-700);
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

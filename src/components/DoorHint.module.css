@@ -1,0 +1,256 @@
+.hintContainer {
+  position: relative;
+  width: 400px; /* Aumentado de 150px */
+  height: 400px; /* Aumentado de 150px */
+  margin: 1rem auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+  border: 2px solid var(--color-accent);
+  transition: all 0.3s ease;
+}
+
+.hintContainer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(106, 13, 173, 0.7);
+}
+
+.hintImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.hintContainer:hover .hintImage {
+  filter: brightness(1.2);
+}
+
+
+
+.hintContainer:hover .hintOverlay {
+  transform: translateY(0);
+}
+
+.hintText {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Zona clickeable para la puerta del molino */
+.clickableArea {
+  position: absolute;
+  /* Ajusta estas coordenadas según la posición exacta de la puerta en tu imagen */
+  left: 42%;
+  top: 75%;
+  width: 9%;
+  height: 17%;
+  cursor: pointer;
+  z-index: 10;
+  /* Borde para depuración, quitar en producción */
+  /* border: 1px solid red; */
+}
+
+/* Estilos para el modal de imagen secreta */
+.secretImageModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.secretImageContainer {
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  background-color: var(--color-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--color-accent);
+  box-shadow: var(--shadow-strong);
+}
+
+.secretImage {
+  max-width: 100%;
+  max-height: 70vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.closeButton {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.8rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .hintContainer {
+    width: 240px; /* Aumentado de 120px */
+    height: 240px; /* Aumentado de 120px */
+  }
+}
+
+@media (max-width: 480px) {
+  .hintContainer {
+    width: 200px; /* Aumentado de 100px */
+    height: 200px; /* Aumentado de 100px */
+  }
+  
+  .hintText {
+    font-size: 0.8rem;
+  }
+}
+
+
+/* Añade este nuevo estilo para el texto informativo */
+.secretImageInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(106, 13, 173, 0.7);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.secretImageInfo span {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+
+/* Estilos para la pista de tetra-el.org */
+.tetraHintContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 1rem auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+  border: 2px solid var(--color-accent);
+  background-color: var(--color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.tetraHintMessage {
+  text-align: center;
+  color: var(--color-text);
+}
+
+.tetraHintMessage h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+.tetraHintMessage p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Estilos responsivos para tetraHintContainer */
+@media (max-width: 768px) {
+  .tetraHintContainer {
+    width: 240px;
+    height: 240px;
+    padding: 1rem;
+  }
+  
+  .tetraHintMessage h3 {
+    font-size: 1.2rem;
+  }
+  
+  .tetraHintMessage p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tetraHintContainer {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.multipleImagesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.multipleHintImage {
+  width: 24%;
+  height: auto;
+  margin: 0 0.5%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.multipleHintImage:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Asegúrate de que en pantallas pequeñas las imágenes se vean bien */
+@media (max-width: 768px) {
+  .multipleImagesContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .multipleHintImage {
+    width: 48%;
+    margin: 1%;
+  }
+}
+
+
+/* Estilo para el grid de imágenes de la puerta Sur */
+.southImagesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 1rem auto;
+  padding: 10px;
+}
+
+/* Ajustes responsivos para el grid */
+@media (max-width: 768px) {
+  .southImagesGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}

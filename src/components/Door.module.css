@@ -1,0 +1,121 @@
+.doorContainer {
+  position: relative;
+  width: 80px;
+  height: 120px;
+  perspective: 500px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.doorContainer:hover:not(.disabled) {
+  transform: scale(1.05);
+}
+
+.door {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  transform-origin: left;
+  box-shadow: var(--shadow-soft);
+}
+
+.doorContainer:hover:not(.disabled) .door {
+  transform: rotateY(-15deg);
+}
+
+.doorFront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: var(--color-door);
+  border: 4px solid var(--color-door-frame);
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.doorKnob {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-door-knob);
+  border-radius: 50%;
+  right: 10px;
+  top: 50%;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.doorNumber {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: var(--color-door-knob);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(70%);
+}
+
+.disabled .door {
+  background-color: var(--color-door-disabled);
+}
+
+.northDoor {
+  transform: rotate(0deg);
+}
+
+.eastDoor {
+  transform: rotate(90deg);
+}
+
+.southDoor {
+  transform: rotate(180deg);
+}
+
+.westDoor {
+  transform: rotate(270deg);
+}
+
+.doorGlow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px 5px 0 0;
+  box-shadow: var(--glow-purple);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.doorContainer:hover:not(.disabled) .doorGlow {
+  opacity: 0.7;
+}
+
+.finalDoor .doorFront {
+  background-color: var(--color-accent);
+  border-color: gold;
+}
+
+.finalDoor .doorNumber {
+  color: gold;
+  font-size: 2rem;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.finalDoor .doorKnob {
+  background-color: gold;
+}
+
+.finalDoor .doorGlow {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.finalDoor:hover:not(.disabled) .doorGlow {
+  opacity: 1;
+}

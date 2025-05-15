@@ -1,0 +1,126 @@
+✅ Objetivo
+Desarrollar una aplicación web tipo laberinto de acertijos usando React.js, donde:
+
+El usuario se mueve entre páginas o secciones haciendo clic en flechas (Norte, Sur, Este, Oeste).
+
+Cada sección presenta un acertijo.
+
+El usuario debe ingresar una respuesta correcta para avanzar o desbloquear contenido.
+
+Las respuestas deben estar protegidas y no deben ser visibles desde el código fuente.
+
+📋 Requisitos Funcionales
+Navegación entre secciones:
+
+Cada "sala" del laberinto debe tener flechas direccionales para moverse a otras salas conectadas.
+
+Las conexiones deben estar definidas por un mapa lógico del laberinto.
+
+Sistema de acertijos:
+
+Cada sala contiene un acertijo o desafío que el usuario debe resolver.
+
+Un input permitirá al usuario ingresar una respuesta.
+
+Verificación de respuesta correcta:
+
+La respuesta ingresada será comparada con una versión "oculta" de la respuesta original.
+
+Al acertar, se permite desbloquear la siguiente zona, mostrar contenido, etc.
+
+Progresión del usuario:
+
+Opcional: guardar el progreso localmente en localStorage para no perder avances al recargar.
+
+🔐 Requisitos de Seguridad (protección de respuestas)
+Ya que no tendrás backend, necesitas proteger las respuestas en el frontend de la siguiente forma:
+
+Hasheo de respuestas correctas:
+
+Las respuestas deben ser almacenadas como hashes (por ejemplo, usando SHA-256).
+
+Al ingresar una respuesta, se debe hashear el input del usuario y comparar con el hash predefinido.
+
+Evitar exposición directa:
+
+No incluir respuestas en texto plano.
+
+Centralizar los hashes en un archivo separado o cargarlo desde un recurso ofuscado (JSON encriptado, etc).
+
+Opcional: Obfuscación del código (por ejemplo, usando herramientas como JavaScript Obfuscator) para hacerlo menos legible.
+
+🔧 Requisitos Técnicos
+Framework y herramientas:
+
+React.js (con Vite, CRA o similar)
+
+react-router-dom para la navegación entre salas
+
+Librería de hash (por ejemplo: crypto-js o js-sha256)
+
+localStorage para progreso del usuario (si se desea persistencia)
+
+Estructura de componentes:
+
+Room: componente principal de cada sala
+
+Arrow: componente reutilizable para flechas direccionales
+
+Puzzle: componente con input para ingresar la respuesta
+
+Estructura del laberinto:
+
+Puede estar definida en un archivo JSON:
+
+js
+Copiar
+Editar
+{
+  "A1": {
+    "question": "What walks on four legs in the morning...",
+    "answerHash": "5e884898da280471...",  // SHA-256 hash
+    "paths": {
+      "north": "A2",
+      "east": "B1"
+    }
+  },
+  ...
+}
+Hashing en frontend:
+
+Utilizar sha256(userInput.toLowerCase().trim()) y comparar con el hash guardado.
+
+Ejemplo con js-sha256:
+
+js
+Copiar
+Editar
+import sha256 from "js-sha256";
+
+const checkAnswer = (input, correctHash) => {
+  const userHash = sha256(input.toLowerCase().trim());
+  return userHash === correctHash;
+};
+🧠 Requisitos de UX/UI
+Interfaz clara con flechas grandes para facilitar la navegación.
+
+Instrucciones claras al entrar en cada sala.
+
+Feedback visual al acertar (mensaje, transición, animación).
+
+Opcional: cronómetro, contador de intentos, puntuación.
+
+📦 Requisitos de despliegue
+Hosting estático (Vercel, Netlify, GitHub Pages)
+
+El código debe compilarse con vite build o react-scripts build
+
+Asegurarse de que no se expongan archivos sensibles en el build final
+
+🧪 Recomendaciones adicionales
+Usa un sistema de “mapeo lógico” para evitar hardcodear rutas entre salas.
+
+Genera los hashes de respuestas con un script externo (Node.js) para mantener la seguridad.
+
+Si quieres aumentar la seguridad, puedes cifrar los archivos del mapa y descifrarlos en tiempo real con una clave oculta/fragmentada en el código.
+

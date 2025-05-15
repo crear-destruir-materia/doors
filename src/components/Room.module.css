@@ -1,0 +1,715 @@
+/* Estilos para el contenedor principal */
+.roomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  padding-top: 0; /* Eliminar el padding superior */
+  position: relative;
+  overflow-x: hidden;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Estilos para el encabezado */
+.header {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem; /* Añadir margen superior */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  position: relative; /* Asegurar que el título sea visible */
+  z-index: 1; /* Dar prioridad al título */
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--color-text-dim);
+}
+
+/* Estilos para la navegación */
+.navigationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  min-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+
+.northPosition {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+}
+
+.westPosition {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: center;
+}
+
+.eastPosition {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: center;
+}
+
+.southPosition {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: center;
+}
+
+/* Estilos para la puerta final */
+.finalDoorContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background-color: rgba(106, 13, 173, 0.2);
+  border-radius: 8px;
+  border: 1px solid var(--color-accent);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.finalDoorLabel {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: gold;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.finalDoorPosition {
+  transform: scale(1.2);
+}
+
+/* Estilos para el acertijo */
+.puzzleWrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para la información de números */
+.discoveredNumbers {
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid var(--color-accent);
+}
+
+.discoveredNumbers h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+.numbersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-align: center;
+}
+
+.finalHint {
+  text-align: center;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: gold;
+  margin-top: 1.5rem;
+  animation: pulse 2s infinite;
+}
+
+.passwordHint {
+  text-align: center;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: white;
+  margin-top: 1rem;
+  background-color: rgba(106, 13, 173, 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid gold;
+}
+
+/* Estilos para la sala del oráculo */
+.oracleContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.oracleDescription {
+  background-color: var(--color-secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-accent);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.oracleForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.oracleTextarea {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-accent);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-family: 'Cinzel', serif;
+  resize: vertical;
+  min-height: 150px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.oracleButton {
+  padding: 1.5rem;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.oracleAnswer {
+  background-color: var(--color-secondary);
+  padding: 3rem;
+  border-radius: 8px;
+  border: 2px solid gold;
+  text-align: center;
+  animation: glow 2s infinite alternate;
+}
+
+.oracleAnswer h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 1.5rem;
+  color: gold;
+}
+
+.answerText {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.returnLink {
+  text-align: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.returnButton {
+  background-color: transparent;
+  color: var(--color-text-dim);
+  border: 1px solid var(--color-text-dim);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.returnButton:hover {
+  color: var(--color-text);
+  border-color: var(--color-text);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Animaciones */
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+}
+
+/* Estilos responsivos mejorados */
+@media (max-width: 768px) {
+  .roomContainer {
+    padding: 1rem;
+  }
+  
+  .navigationGrid {
+    gap: 0.5rem;
+    min-height: 250px;
+  }
+  
+  .numbersGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .oracleAnswer {
+    padding: 1.5rem;
+  }
+  
+  .finalDoorContainer,
+  .discoveredNumbers {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .roomContainer {
+    padding: 0.5rem;
+  }
+  
+  .navigationGrid {
+    min-height: 200px;
+  }
+  
+  .numbersGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .oracleTextarea {
+    min-height: 100px;
+  }
+}
+
+/* Asegurarse de que todo el contenido esté centrado */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  display: block; /* Cambiar de flex a block */
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: block; /* Cambiar de flex a block */
+}
+
+
+/* Estilos para el efecto glitch */
+.glitchText {
+  animation: glitchAnimation 0.3s infinite;
+  position: relative;
+  text-shadow: 1px 0 0 rgba(255, 0, 0, 0.5), -1px 0 0 rgba(0, 255, 255, 0.5);
+}
+
+.glitchButton {
+  animation: buttonGlitch 2s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes glitchAnimation {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes buttonGlitch {
+  0% {
+    text-shadow: 1px 0 0 rgba(255, 0, 0, 0.5), -1px 0 0 rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  25% {
+    text-shadow: -1px 0 0 rgba(255, 0, 0, 0.5), 1px 0 0 rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 1px -1px 0 rgba(255, 0, 0, 0.5), -1px 1px 0 rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  75% {
+    text-shadow: -1px -1px 0 rgba(255, 0, 0, 0.5), 1px 1px 0 rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 1px 0 0 rgba(255, 0, 0, 0.5), -1px 0 0 rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+}
+
+/* Efecto para el contenedor del oráculo */
+.oracleContainer:has(.glitchText) {
+  animation: containerGlitch 4s infinite;
+}
+
+@keyframes containerGlitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  10% {
+    transform: translate(-5px, 0) skew(2deg, 0);
+  }
+  20% {
+    transform: translate(5px, 0) skew(-2deg, 0);
+  }
+  30% {
+    transform: translate(0, -3px) skew(0, 1deg);
+  }
+  40% {
+    transform: translate(0, 3px) skew(0, -1deg);
+  }
+  50% {
+    transform: translate(0);
+  }
+  60% {
+    transform: translate(3px, 2px) scale(1.01);
+  }
+  70% {
+    transform: translate(-3px, -2px) scale(0.99);
+  }
+  80% {
+    transform: translate(2px, -1px) rotate(0.5deg);
+  }
+  90% {
+    transform: translate(-2px, 1px) rotate(-0.5deg);
+  }
+}
+
+/* Efecto para el textarea */
+.oracleTextarea:has(+ .glitchButton) {
+  animation: textareaGlitch 3s infinite;
+}
+
+@keyframes textareaGlitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  15% {
+    transform: translate(3px, -2px);
+  }
+  30% {
+    transform: translate(-3px, 2px);
+  }
+  45% {
+    transform: translate(0);
+  }
+  60% {
+    transform: translate(-2px, -1px);
+  }
+  75% {
+    transform: translate(2px, 1px);
+  }
+  90% {
+    transform: translate(0);
+  }
+}
+
+/* Estilos para el efecto glitch con movimiento */
+.glitchText {
+  animation: textShake 0.3s infinite;
+  position: relative;
+  text-shadow: 1px 0 0 rgba(255, 0, 0, 0.5), -1px 0 0 rgba(0, 255, 255, 0.5);
+}
+
+@keyframes textShake {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-3px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -3px);
+  }
+  60% {
+    transform: translate(3px, 1px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.glitchButton {
+  animation: buttonShake 0.5s infinite;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 1px 0 0 rgba(255, 0, 0, 0.5), -1px 0 0 rgba(0, 255, 255, 0.5);
+}
+
+@keyframes buttonShake {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-5px, 3px) rotate(-1deg);
+  }
+  50% {
+    transform: translate(3px, -2px) rotate(1deg);
+  }
+  75% {
+    transform: translate(-2px, 4px) rotate(-0.5deg);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Efecto para el contenedor del oráculo */
+.oracleContainer:has(.glitchText) {
+  animation: containerGlitch 4s infinite;
+}
+
+@keyframes containerGlitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  10% {
+    transform: translate(-5px, 0) skew(2deg, 0);
+  }
+  20% {
+    transform: translate(5px, 0) skew(-2deg, 0);
+  }
+  30% {
+    transform: translate(0, -3px) skew(0, 1deg);
+  }
+  40% {
+    transform: translate(0, 3px) skew(0, -1deg);
+  }
+  50% {
+    transform: translate(0);
+  }
+  60% {
+    transform: translate(3px, 2px) scale(1.01);
+  }
+  70% {
+    transform: translate(-3px, -2px) scale(0.99);
+  }
+  80% {
+    transform: translate(2px, -1px) rotate(0.5deg);
+  }
+  90% {
+    transform: translate(-2px, 1px) rotate(-0.5deg);
+  }
+}
+
+/* Efecto para el textarea */
+.oracleTextarea:has(+ .glitchButton) {
+  animation: textareaGlitch 3s infinite;
+}
+
+@keyframes textareaGlitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  15% {
+    transform: translate(3px, -2px);
+  }
+  30% {
+    transform: translate(-3px, 2px);
+  }
+  45% {
+    transform: translate(0);
+  }
+  60% {
+    transform: translate(-2px, -1px);
+  }
+  75% {
+    transform: translate(2px, 1px);
+  }
+  90% {
+    transform: translate(0);
+  }
+}
+
+/* Efecto adicional para el fondo de la sala final cuando el glitch está activo */
+.roomContainer:has(.glitchText) .roomBackground {
+  animation: backgroundGlitch 5s infinite;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(20, 0, 30, 0.9)
+  );
+}
+
+@keyframes backgroundGlitch {
+  0%, 100% {
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    filter: hue-rotate(45deg);
+    transform: scale(1.02) translate(-5px, 0);
+  }
+  50% {
+    filter: hue-rotate(90deg);
+    transform: scale(1) translate(5px, 0);
+  }
+  75% {
+    filter: hue-rotate(45deg);
+    transform: scale(1.01) translate(0, -5px);
+  }
+}
+
+/* Efecto para la respuesta del oráculo */
+.oracleAnswer:has(.glitchText) {
+  animation: answerGlitch 2s infinite;
+}
+
+@keyframes answerGlitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(4px, -3px) skew(1deg, 0);
+  }
+  40% {
+    transform: translate(-4px, 3px) skew(-1deg, 0);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(-2px, -2px);
+  }
+}
+
+/* Ocultar el botón de retorno cuando el glitch está activo */
+.roomContainer:has(.glitchText) .returnButton,
+.roomContainer:has(.glitchText) .returnLink {
+  opacity: 0;
+  pointer-events: none;
+  cursor: not-allowed;
+  position: relative;
+  animation: buttonDisappear 4s forwards;
+}
+
+@keyframes buttonDisappear {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateY(-5px) skew(5deg, 2deg);
+  }
+  40% {
+    opacity: 0.6;
+    transform: translateY(3px) skew(-3deg, -1deg);
+  }
+  60% {
+    opacity: 0.4;
+    transform: translateY(-2px) skew(2deg, 1deg);
+  }
+  80% {
+    opacity: 0.2;
+    transform: translateY(1px) skew(-1deg, -0.5deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+    display: none;
+  }
+}
+
+/* Añadir un mensaje de error cuando se intenta hacer clic en áreas no permitidas */
+.roomContainer:has(.glitchText)::after {
+  content: "ERROR: CONEXIÓN INTERRUMPIDA";
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  animation: errorFlash 0.5s infinite alternate;
+  z-index: 1000;
+}
+
+.roomContainer:has(.glitchText):active::after {
+  opacity: 1;
+}
+
+@keyframes errorFlash {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
